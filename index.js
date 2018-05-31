@@ -100,7 +100,7 @@ app.use(express.static(path.join(__dirname, '/views')));
 app.set('port', 6541);
 
 
-//app.use('/', require('./script.js'));
+app.use('/', require('./script.js'));
 
 
 app.get('/', function(req, res){
