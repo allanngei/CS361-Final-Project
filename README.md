@@ -1,4 +1,10 @@
 # CS361-Final-Project
+This is the SportSponsor project of Group 20 for CS361. The software uses the following languages/packages:
+* HTML/CSS
+* Javascript
+* Express
+* Handlebars
+* Node.js
 
 ## Getting Started:
 
