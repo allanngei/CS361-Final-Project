@@ -107,6 +107,13 @@ app.get('/', function(req, res){
 	res.render('home');
 });
 
+app.get('/register', function(req, res){
+  res.render('accountRegister');
+});
+
+
+
+
 app.use(function(req,res){
   res.status(404);
   res.render('404');
