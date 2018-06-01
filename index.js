@@ -43,6 +43,14 @@ app.use('/js', express.static('js'));
 app.use('/css', express.static('css'));
 
 
+mysql.pool = mysql.createPool({
+  connectionLimit : 10,
+  multipleStatements: true,
+  host: "cs361.c2hl143b9t25.us-east-1.rds.amazonaws.com",
+  user: "cs361_root",
+  password: "tt86siY63QvuyVl",
+  database: "cs361"
+});
 
 
 app.use(express.static(path.join(__dirname, '/views')));
@@ -51,7 +59,7 @@ app.use(express.static(path.join(__dirname, '/views')));
 app.set('port', 6541);
 
 
-// app.use('/', require('./script.js'));
+
 
 
 app.get('/', function(req, res){
@@ -61,6 +69,43 @@ app.get('/', function(req, res){
 app.get('/registerFamily', function(req, res){
   res.render('registerFamily', {layout: 'register.handlebars'});
 });
+
+
+app.post('/family', function(req, res){
+  var mysql = req.app.get('mysql');
+  var sql = "INSERT INTO family (\
+              userName,\
+              password,\
+              first_name,\
+              last_name,\
+              street,\
+              city,\
+              state,\
+              zip_code,\
+              sport)\
+              VALUES (?, MD5(?), ?, ?, ?, ?, ?, ?, ?)";
+
+    var inserts = [req.body.username,
+                   req.body.password,
+                   req.body.firstName,
+                   req.body.lastName,
+                   req.body.street,
+                   req.body.city,
+                   req.body.state,
+                   req.body.zipCode,
+                   req.body.sport];
+
+    sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        }else{
+            res.redirect('/');
+        }
+    });
+});
+
+
 
 
 

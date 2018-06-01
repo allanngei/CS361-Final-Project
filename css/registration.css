@@ -2,7 +2,9 @@
 	text-align: center;
 }
 
-
+/*#familyForm{
+	width: 0 auto;
+}
 
 label{
     display: inline-block;
@@ -14,4 +16,17 @@ label{
 input {
   display: inline-block;
   float: left;
+}*/
+
+
+#parent{
+	display: table;
+	width: 100%;
 }
+
+#familyForm{
+	display: table-cell;
+   	text-align: center;
+   	vertical-align: middle;
+}
+
