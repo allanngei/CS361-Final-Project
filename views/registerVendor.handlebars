@@ -1,9 +1,9 @@
-<h1 class="pageTitle">Family Registration</h1>
+<h1 class="pageTitle">Vendor Registration</h1>
 
 <div id="parent">
-	<form id="familyForm" action="/family" method="post">
+	<form id="familyForm" action="/vendor" method="post">
 		<h3>Account Details</h3>
-		<label>Username:</label> <input type="text" name="username" placeholder="username"><br>
+		<label>Username:</label> <input type="text" name="user_name" placeholder="username"><br>
 		
 		<label>Password:</label> <input type="password" name="password"
 										id="password" placeholder="password" onkeyup='check();'><br>
@@ -16,9 +16,8 @@
 		<br><br>
 
 
-		<h3>Personal Information</h3>
-		<label>First Name: </label> <input type="text" name="firstName" placeholder="First Name"><br>
-		<label>Last Name:  </label> <input type="text" name="lastName"  placeholder="Last Name"><br>
+		<h3>Business Information</h3>
+		<label>Business Name: </label> <input type="text" name="business_name" placeholder="Business Name"><br>
 		<label>Street:     </label> <input type="text" name="street"    placeholder="Street"><br>
 		<label>City:       </label> <input type="text" name="city"      placeholder="City"><br>
 		
@@ -78,28 +77,31 @@
 									</select>	
 		<br>
 		
-		<label>Zip Code:   </label> <input type="number" name="zipCode" placeholder="Zipcode">
-		<br>
+		<label>Zip Code:   </label> <input type="number" name="zip_code" placeholder="Zipcode"><br>
 
+		<br>
 
 		<h3>Contact Information</h3>
-		<label>Phone Number:</label><input type="text" name="phoneNumber" placeholder="xxx-xxx-xxxx"><br>
+		<label>Phone Number:</label><input type="text" name="phone_number" placeholder="xxx-xxx-xxxx"><br>
 		<label>Email:</label><input type="email" name="email" placeholder="example@gmail.com"><br>
-
-
-		<label>Sport: 	   </label> <select name="sport">
-										<option value="" selected disabled hidden>Select Sport</option>
-										<option value="baseball">Baseball</option>
-										<option value="softball">Softball</option>
-										<option value="basketball">Basketball</option>
-										<option value="football">Football</option>
-										<option value="gold">Golf</option>
-										<option value="swim">Swim</option>
-										<option value="soccer">Soccer</option>
-										<option value="tennis">Tennis</option>
-									</select>
+		
 		<br>
+
+		<h3>Business Hours</h3>
+		<label>Sunday: </label><input type="time" name="sunday_open"> <label>to </label></label><input type="time" name="sunday_close">
 		<br>
-		<input type="submit" value="Submit Form">
+		<label>Monday: </label><input type="time" name="monday_open"> <label>to </label></label><input type="time" name="monday_close">
+		<br>
+		<label>Tuesday: </label><input type="time" name="tuesday_open"> <label>to </label></label><input type="time" name="tuesday_close">
+		<br>
+		<label>Wednesday: </label><input type="time" name="wednesday_open"> <label>to </label></label><input type="time" name="wednesday_close">
+		<br>
+		<label>Thursday: </label><input type="time" name="thursday_open"> <label>to </label></label><input type="time" name="thursday_close">
+		<br>
+		<label>Friday: </label><input type="time" name="friday_open"> <label>to </label></label><input type="time" name="friday_close">
+		<br>
+		<label>Saturday: </label><input type="time" name="saturday_open"> <label>to </label></label><input type="time" name="saturday_close">
+		<br>
+		<input type="submit" value="Submit">
 	</form>
 </div>
