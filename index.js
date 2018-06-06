@@ -39,7 +39,7 @@ mysql.pool = mysql.createPool({
 app.use(express.static(path.join(__dirname, '/views')));
 
 
-app.set('port', 6542);
+app.set('port', 6543);
 
 
 
@@ -64,6 +64,12 @@ app.get('/registerVendor', function(req, res){
 app.get('/registerLeague', function(req, res){
   res.render('registerLeague', {layout: 'register.handlebars'});
 });
+
+
+
+
+
+
 
 
 app.post('/family', function(req, res){
