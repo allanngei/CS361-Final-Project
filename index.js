@@ -68,6 +68,11 @@ app.get('/registerLeague', function(req, res){
 
 
 
+app.get('/account', function(req, res){
+  res.render('accountRegister', {layout:'register.handlebars'});
+});
+
+
 
 
 
@@ -224,6 +229,32 @@ app.post('/vendor', function(req, res){
       }
   });
 });
+
+
+
+
+
+
+
+ app.post('/account', function(req, res){
+   var mysql = req.app.get('mysql');
+   var sql = "SELECT userName, password, first_name, last_name, street, city, state, zip_code, phoneNumber, email FROM family WHERE userName=? AND password=?";
+
+	var inserts = [req.body.userName, req.body.password];
+
+	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
+         if(error){
+             res.write(JSON.stringify(error));
+             res.end();
+         }else{
+             res.render('/accountPage', {layout:'register.handlebars', family:results});
+         }
+     });
+ });
+
+
+
+
 
 
 app.use(function(req,res){
