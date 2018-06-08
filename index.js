@@ -72,6 +72,25 @@ app.get('/registerLeague', function(req, res){
 
 
 
+app.get('/account', function(req, res){
+  var context = {};
+  var mysql = req.app.get('mysql');
+  var x = "testUserName";
+  mysql.pool.query("SELECT userName, password, first_name, last_name, street, city, state, zip_code, phoneNumber, email FROM family WHERE userName=?", [x], function(error, results, fields){
+    context.family = results[0];
+    console.log(results);
+    res.render('accountPage', context);
+  })
+});
+
+
+
+
+
+
+
+
+
 app.post('/family', function(req, res){
   var mysql = req.app.get('mysql');
   var sql = "INSERT INTO family (\
