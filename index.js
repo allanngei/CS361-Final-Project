@@ -39,7 +39,7 @@ mysql.pool = mysql.createPool({
 app.use(express.static(path.join(__dirname, '/views')));
 
 
-app.set('port', 6543);
+app.set('port', 6544);
 
 
 
@@ -65,21 +65,28 @@ app.get('/registerLeague', function(req, res){
   res.render('registerLeague', {layout: 'register.handlebars'});
 });
 
+app.get('/login', function(req, res){
+  res.render('login');
+});
 
 
 
 
 
-
-
-app.get('/account', function(req, res){
+app.post('/account', function(req, res){
   var context = {};
   var mysql = req.app.get('mysql');
   var x = "testUserName";
-  mysql.pool.query("SELECT userName, password, first_name, last_name, street, city, state, zip_code, phoneNumber, email FROM family WHERE userName=?", [x], function(error, results, fields){
-    context.family = results[0];
-    console.log(results);
-    res.render('accountPage', context);
+  console.log(req.body);
+  mysql.pool.query("SELECT userName, password, first_name, last_name, street, city, state, zip_code, phoneNumber, email FROM family WHERE userName=? and password = MD5(?)", [req.body.userName, req.body.password], function(error, results, fields){
+      if(error){
+        alert("Username and Password do not match. Please try again.");
+      }
+      else{
+        context.family = results[0];
+        console.log(results);
+        res.render('accountPage', context);
+      }
   })
 });
 
