@@ -97,9 +97,6 @@ app.post('/account', function(req, res){
 
 >>>>>>> cfc9202319d58a5b0abc425bb26433b42cc53038
 
-app.get('/account', function(req, res){
-  res.render('accountRegister', {layout:'register.handlebars'});
-});
 
 
 
