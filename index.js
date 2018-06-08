@@ -65,10 +65,8 @@ app.get('/registerLeague', function(req, res){
   res.render('registerLeague', {layout: 'register.handlebars'});
 });
 
-<<<<<<< HEAD
 
 
-=======
 app.get('/login', function(req, res){
   res.render('login');
 });
@@ -95,7 +93,6 @@ app.post('/account', function(req, res){
 });
 
 
->>>>>>> cfc9202319d58a5b0abc425bb26433b42cc53038
 
 
 
